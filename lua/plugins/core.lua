@@ -1,11 +1,5 @@
 return {
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "ashen",
-    },
-  },
-  {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       local trouble = require("trouble")
