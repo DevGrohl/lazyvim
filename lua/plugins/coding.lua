@@ -1,11 +1,23 @@
 return {
   {
-    "crnvl96/lazydocker.nvim",
+    "mgierada/lazydocker.nvim",
+    dependencies = { "akinsho/toggleterm.nvim" },
+    config = function()
+      require("lazydocker").setup({
+        border = "curved", -- valid options are "single" | "double" | "shadow" | "curved"
+      })
+    end,
+    event = "BufRead",
     keys = {
-      { "<leader>ld", "<cmd>LazyDocker<cr>", desc = "LazyDocker" },
+      {
+        "<leader>ld",
+        function()
+          require("lazydocker").open()
+        end,
+        desc = "Open Lazydocker floating window",
+      },
     },
   },
-  -- Git enhancements
   {
     "kdheepak/lazygit.nvim",
     dependencies = {
@@ -13,31 +25,6 @@ return {
     },
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-    },
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    opts = {
-      window = {
-        layout = "float",
-        width = 80, -- Fixed width in columns
-        height = 20, -- Fixed height in rows
-        border = "rounded", -- 'single', 'double', 'rounded', 'solid'
-        title = "🤖 AI Assistant",
-        zindex = 100, -- Ensure window stays on top
-      },
-
-      headers = {
-        user = "👤 You: ",
-        assistant = "🤖 Copilot: ",
-        tool = "🔧 Tool: ",
-      },
-      separator = "━━",
-      show_folds = false, -- Disable folding for cleaner look
     },
   },
 }

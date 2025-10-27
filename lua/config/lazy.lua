@@ -14,9 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- vim.g.augment_workspace_folders = { "$HOME/Github/RealtorCareersAPI/", "$HOME/.config/nvim/" }
--- vim.g.augment_disable_completions = true
-
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },

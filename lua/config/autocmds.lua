@@ -1,1 +1,23 @@
-
+-- function _G.reload_plugin()
+--   local cwd = vim.fn.getcwd()
+--
+--   for key, _ in pairs(package.loaded) do
+--     if not key:match("^vim") and not key:match("^nvim") then
+--       package.loaded[key] = nil
+--     end
+--   end
+--
+--   vim.cmd("cd " .. cwd)
+--
+--   local config_path = vim.fn.stdpath("config") .. "/init.lua"
+--   if vim.fn.filereadable(config_path) == 1 then
+--     dofile(config_path)
+--     print("Reloaded init.lua")
+--   else
+--     vim.cmd("source " .. vim.fn.stdpath("config") .. "/init.vim")
+--     print("Reloaded init.vim")
+--   end
+-- end
+--
+-- vim.api.nvim_create_user_command("ReloadPlugins", reload_plugin, {})
+-- vim.keymap.set("n", "<leader>rr", reload_plugin, { desc = "Reload all plugins" })
